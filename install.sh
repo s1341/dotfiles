@@ -23,10 +23,13 @@ function install_file {
 }
 
 
+# switch to the directory of this script
+pushd $(dirname $0) > /dev/null
 
 # install vimrc files, meant to be used with spf13
 for file in vimrc*
 do
+    echo install_file $file "$HOME/.$file"
     install_file $file "$HOME/.$file"
 done
 
@@ -37,3 +40,7 @@ curl https://j.mp/spf13-vim3 -L -o - | sh
 # build native for YouCompleteMe and vimproc
 (cd $HOME/.vim/bundle/vimproc; make clean all)
 (cd $HOME/.vim/bundle/YouCompleteMe; ./install.sh --clang-completer --system-libclang)
+
+
+# we're done, go back to the original directory
+popd > /dev/null
