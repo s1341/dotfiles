@@ -1,0 +1,14 @@
+" airline
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 1
+let g:airline_section_y = ""
+
+" Syntastic
+let g:syntastic_always_populate_loc_list=1
+let g:syntastic_error_symbol = '✗'
+let g:syntastic_style_error_symbol = '✠'
+let g:syntastic_warning_symbol = '∆'
+let g:syntastic_style_warning_symbol = '≈'
+
+" Don't show indent_guides in unite buffers
+let g:indent_guides_exclude_filetypes = ['help', 'nerdtree', 'unite']

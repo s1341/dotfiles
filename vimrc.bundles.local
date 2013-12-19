@@ -1,0 +1,23 @@
+let g:spf13_bundle_groups=['general', 'programming', 'php', 'ruby',  'go', 'twig', 'javascript', 'haskell', 'html', 'misc', 'scala']
+
+Bundle 'Valloric/YouCompleteMe'
+Bundle 'Raimondi/delimitMate'
+Bundle 'tpope/vim-sleuth'
+Bundle 'tpope/vim-unimpaired'
+Bundle 'tpope/vim-repeat'
+
+Bundle 'Shougo/vimproc'
+Bundle 'Shougo/vimshell.vim'
+Bundle 'Shougo/unite.vim'
+Bundle 'Shougo/unite-outline'
+
+" python
+Bundle 'python.vim'
+Bundle 'python_match.vim'
+
+" javascript
+Bundle 'jelera/vim-javascript-syntax'
+Bundle 'marijnh/tern_for_vim'
+Bundle 'othree/javascript-libraries-syntax.vim'
+
+

@@ -1,0 +1,60 @@
+UnBundle 'spf13/vim-autoclose'
+color molokai
+let g:airline_theme = 'molokai'
+
+" https://github.com/majutsushi/tagbar/issues/99
+set shell=/bin/sh
+
+" GitDiff off
+nnoremap <Leader>gD :diffoff<cr>:bd<cr>:gedit<cr>
+
+" unite:
+nnoremap <space>p :Unite -start-insert file_rec/async:!<cr>
+nnoremap <space>f :Unite -start-insert file_rec/async<cr>
+nnoremap <space>b :Unite -quick-match buffer<cr>
+nnoremap <space>o :Unite outline<cr>
+nnoremap <space>m :Unite mapping<cr>
+nnoremap <space>/ :Unite grep:.<cr>
+
+
+autocmd FileType unite call s:unite_my_settings()
+function! s:unite_my_settings()
+  nmap <buffer> <ESC> <Plug>(unite_exit)
+  imap <buffer> <TAB> <Plug>(unite_select_next_line)
+endfunction
+
+" buffer cycling
+noremap <Leader><Left> :bp<CR>
+noremap <Leader><Right> :bn<CR>
+noremap <F1> :SwitchBuffer 0<CR>
+noremap <F2> :SwitchBuffer 1<CR>
+noremap <F3> :SwitchBuffer 2<CR>
+noremap <F4> :SwitchBuffer 3<CR>
+noremap <F5> :SwitchBuffer 4<CR>
+noremap <F6> :SwitchBuffer 5<CR>
+noremap <F7> :SwitchBuffer 6<CR>
+noremap <F8> :SwitchBuffer 7<CR>
+noremap <F9> :SwitchBuffer 8<CR>
+noremap <F10> :SwitchBuffer 9<CR>
+noremap <F11> :SwitchBuffer 10<CR>
+noremap <F12> :SwitchBuffer 11<CR>
+
+command! -nargs=1 SwitchBuffer call s:SwitchBuffer(<f-args>)
+function! s:SwitchBuffer(index)
+    let l:buffers = filter(range(1, bufnr('$')), 'buflisted(v:val)')
+    if a:index >= len(l:buffers)
+        echo "buffer index out of range"
+        return 0
+    endif
+    let l:num = l:buffers[a:index]
+    execute "b" . l:num
+    return 1
+endfun
+
+" make home smarter (http://vim.wikia.com/wiki/Smart_home)
+noremap <expr> <silent> <Home> col('.') == match(getline('.'),'\S')+1 ? '0' : '^'
+imap <silent> <Home> <C-O><Home>
+
+
+
+
