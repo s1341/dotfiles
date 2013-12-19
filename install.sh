@@ -27,7 +27,7 @@ function install_file {
 pushd $(dirname $0) > /dev/null
 
 # install vimrc files, meant to be used with spf13
-for file in vimrc*
+for file in *vimrc*
 do
     echo install_file $file "$HOME/.$file"
     install_file $file "$HOME/.$file"
