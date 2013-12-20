@@ -1,6 +1,15 @@
 UnBundle 'spf13/vim-autoclose'
+UnBundle 'bling/vim-bufferline'
+
 color molokai
 let g:airline_theme = 'molokai'
+
+" vim-indent-guides auto-colors don't work nicely in term
+" with molokai
+let g:indent_guides_auto_colors = 0
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=235
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=237
+
 
 " https://github.com/majutsushi/tagbar/issues/99
 set shell=/bin/sh
