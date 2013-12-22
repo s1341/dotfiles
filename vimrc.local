@@ -27,6 +27,9 @@ set shell=/bin/sh
 " GitDiff off
 nnoremap <Leader>gD :diffoff<cr>:bd<cr>:gedit<cr>
 
+" replace item under cursor
+nnoremap <Leader>r :%s/<C-r><C-w>/
+
 " unite:
 nnoremap <space>p :Unite -start-insert file_rec/async:!<cr>
 nnoremap <space>f :Unite -start-insert file_rec/async<cr>
@@ -34,7 +37,6 @@ nnoremap <space>b :Unite -quick-match buffer<cr>
 nnoremap <space>o :Unite outline<cr>
 nnoremap <space>m :Unite mapping<cr>
 nnoremap <space>/ :Unite grep:.<cr>
-
 
 autocmd FileType unite call s:unite_my_settings()
 function! s:unite_my_settings()

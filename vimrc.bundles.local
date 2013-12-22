@@ -2,7 +2,13 @@ let g:spf13_bundle_groups=['general', 'programming', 'php', 'ruby',  'go', 'twig
 
 Bundle 'Valloric/YouCompleteMe'
 Bundle 'Raimondi/delimitMate'
+
+" autodetect ts sw sts in files
 Bundle 'tpope/vim-sleuth'
+
+" git log viewer
+Bundle 'gregsexton/gitv'
+
 Bundle 'tpope/vim-unimpaired'
 Bundle 'tpope/vim-repeat'
 
