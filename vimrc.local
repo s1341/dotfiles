@@ -10,6 +10,16 @@ let g:indent_guides_auto_colors = 0
 autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=235
 autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=237
 
+" molokai uses awesome undercurls for spelling errors in gui
+" but doesn't setup anything good for cterm. Let's fix that.
+if has("spell")
+    hi clear SpellBad SpellCap SpellLocal SpellRare
+    hi SpellBad    guisp=#FF0000 gui=undercurl cterm=underline
+    hi SpellCap    guisp=#7070F0 gui=undercurl cterm=underline
+    hi SpellLocal  guisp=#70F0F0 gui=undercurl cterm=underline
+    hi SpellRare   guisp=#FFFFFF gui=undercurl cterm=underline
+endif
+
 
 " https://github.com/majutsushi/tagbar/issues/99
 set shell=/bin/sh
@@ -33,8 +43,8 @@ function! s:unite_my_settings()
 endfunction
 
 " buffer cycling
-noremap <Leader><Left> :bp<CR>
-noremap <Leader><Right> :bn<CR>
+noremap! <Leader><Left> :bp<CR>
+noremap! <Leader><Right> :bn<CR>
 noremap <F1> :SwitchBuffer 0<CR>
 noremap <F2> :SwitchBuffer 1<CR>
 noremap <F3> :SwitchBuffer 2<CR>
