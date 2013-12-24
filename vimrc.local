@@ -35,7 +35,7 @@ nnoremap <space>p :Unite -start-insert file_rec/async:!<cr>
 nnoremap <space>f :Unite -start-insert file_rec/async<cr>
 nnoremap <space>b :Unite -quick-match buffer<cr>
 nnoremap <space>o :Unite outline<cr>
-nnoremap <space>m :Unite mapping<cr>
+"nnoremap <space>m :Unite mapping<cr>
 nnoremap <space>/ :Unite grep:.<cr>
 
 autocmd FileType unite call s:unite_my_settings()
@@ -43,6 +43,13 @@ function! s:unite_my_settings()
   nmap <buffer> <ESC> <Plug>(unite_exit)
   imap <buffer> <TAB> <Plug>(unite_select_next_line)
 endfunction
+
+" bookmarks
+nnoremap <space>m :CopenBookmarks<cr>
+nnoremap <C-b> :Bookmark<space><C-r><C-w>
+" quick toggle quickfix/locationlist
+nmap <script> <silent> <space>l :call ToggleLocationList()<CR>
+nmap <script> <silent> <space>q :call ToggleQuickfixList()<CR>
 
 " buffer cycling
 noremap! <Leader><Left> :bp<CR>

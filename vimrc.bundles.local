@@ -12,6 +12,9 @@ Bundle 'gregsexton/gitv'
 Bundle 'tpope/vim-unimpaired'
 Bundle 'tpope/vim-repeat'
 
+Bundle 'AndrewRadev/simple_bookmarks.vim'
+Bundle 'milkypostman/vim-togglelist'
+
 Bundle 'Shougo/vimproc'
 Bundle 'Shougo/vimshell.vim'
 Bundle 'Shougo/unite.vim'
