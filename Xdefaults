@@ -1,0 +1,119 @@
+! vim: set ft=xdefaults
+!
+! General
+urxvt*termName:           rxvt-unicode-256color
+urxvt*loginShell:         true
+urxvt*scrollBar:         false
+urxvt*secondaryScroll:    true
+urxvt*saveLines:         65535
+urxvt*cursorBlink:       true
+urxvt*cursorUnderline:   false
+urxvt*urgentOnBell:       true
+urxvt*override-redirect:false
+urxvt*font: xft:DejaVu Sans Mono for Powerline:size=8:antialias=false
+!
+! Extensions
+urxvt*perl-lib:        /usr/lib/urxvt/perl/
+urxvt*perl-ext-common: default,url-select,clipboard,searchable-scrollback,font-size,keyboard-select
+
+urxvt*url-select.launcher:     /usr/bin/chromium
+urxvt*keysym.M-u:    perl:url-select:select_next
+urxvt*keysym.M-Escape:   perl:keyboard-select:activate
+urxvt*keysym.M-c:    perl:clipboard:copy
+urxvt*keysym.M-v:    perl:clipboard:paste
+urxvt*keysym.M-C-v:    perl:clipboard:paste_escaped
+
+
+urxvt*matcher.button:  1
+! Catch ugly URLs
+urxvt*cutchars:        '"'()*<>[]{|}
+
+! font resizing
+urxvt*keysym.C-plus:    perl:font-size:increase
+urxvt*keysym.C-minus:    perl:font-size:decrease
+urxvt*keysym.C-0:    command:\033]710;xft:DejaVu Sans Mono for Powerline:size=8:autohint=true:antialias=false\007
+urxvt*font-size.step: 1
+
+
+!! Molokai theme
+!urxvt*background                : #1B1D1E
+urxvt*background                : #101010
+urxvt*foreground                : #F8F8F2
+urxvt*cursorColor                : #FF0000
+! Black         0;30
+urxvt*color0                        : #1B1D1E
+! Red           0;31
+urxvt*color1                        : #B60050
+! Green         0;32
+urxvt*color2                        : #88BB22
+! Brown         0;33
+urxvt*color3                        : #C47F2C
+! Blue          0;34
+urxvt*color4                        : #30309B
+! Purple        0;35
+urxvt*color5                        : #7E40A5
+! Cyan          0;36
+urxvt*color6                        : #4699AF
+! Light Gray    0;37
+urxvt*color7                        : #9999AA
+
+! Dark Gray     1;30
+urxvt*color8                        : #303030
+! Light Red     1;31
+urxvt*color9                        : #F92672
+! Light Green   1;32
+urxvt*color10                        : #80FF00
+! Yellow        1;33
+urxvt*color11                        : #FFBA68
+! Light Blue    1;34
+urxvt*color12                        : #7070F0
+! Light Purple  1;35
+urxvt*color13                        : #BB88DD
+! Light Cyan    1;36
+urxvt*color14                        : #66D9EF
+! White         1;37
+urxvt*color15                        : #F8F8F2
+
+
+!!InifiniteRed color-scheme
+!urxvt*foreground: #f2f2f2
+!urxvt*background: #101010
+!
+!! Normal
+!! color0    black
+!! color1    red
+!! color2    green
+!! color3    yellow
+!! color4    blue
+!! color5    purple
+!! color6    cyan
+!! color7    white
+!
+!urxvt*color0:    #6c6c6c
+!urxvt*color1:    #e9897c
+!urxvt*color2:    #b6e77d
+!urxvt*color3:    #ecebbe
+!urxvt*color4:    #a9cdeb
+!urxvt*color5:    #ea96eb
+!urxvt*color6:    #c9caec
+!urxvt*color7:    #f2f2f2
+!
+!! Light
+!! color8    black
+!! color9    red
+!! color10    green
+!! color11    yellow
+!! color12    blue
+!! color13    purple
+!! color14    cyan
+!! color15    white
+!
+!urxvt*color8:    #747474
+!urxvt*color9:    #f99286
+!urxvt*color10:    #c3f786
+!urxvt*color11:    #fcfbcc
+!urxvt*color12:    #b6defb
+!urxvt*color13:    #fba1fb
+!urxvt*color14:    #d7d9fc
+!urxvt*color15:    #e2e2e2
+!!}

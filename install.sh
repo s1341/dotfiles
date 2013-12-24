@@ -10,6 +10,7 @@ function realpath {
 function install_file {
     local source="$1"
     local target="$2"
+    echo install_file $source $target
     if [[ -e $target ]]
     then
         if [[ -L $target ]]
@@ -29,7 +30,6 @@ pushd $(dirname $0) > /dev/null
 # install vimrc files, meant to be used with spf13
 for file in *vimrc*
 do
-    echo install_file $file "$HOME/.$file"
     install_file $file "$HOME/.$file"
 done
 
@@ -41,6 +41,8 @@ curl https://j.mp/spf13-vim3 -L -o - | sh
 (cd $HOME/.vim/bundle/vimproc; make clean all)
 (cd $HOME/.vim/bundle/YouCompleteMe; ./install.sh --clang-completer --system-libclang)
 
+# install Xdefaults
+install_file Xdefaults "$HOME/.Xdefaults"
 
 # we're done, go back to the original directory
 popd > /dev/null
