@@ -25,7 +25,7 @@ endif
 set shell=/bin/sh
 
 " GitDiff off
-nnoremap <Leader>gD :diffoff<cr>:bd<cr>:gedit<cr>
+nnoremap <Leader>gD :diffoff<cr>:bd<cr>:Gedit<cr>
 
 " replace item under cursor
 nnoremap <Leader>r :%s/<C-r><C-w>/
