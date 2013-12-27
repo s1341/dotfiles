@@ -36,8 +36,8 @@ urxvt*font-size.step: 1
 
 
 !! Molokai theme
-!urxvt*background                : #1B1D1E
-urxvt*background                : #101010
+urxvt*background                : #1B1D1E
+!urxvt*background                : #101010
 urxvt*foreground                : #F8F8F2
 urxvt*cursorColor                : #FF0000
 ! Black         0;30

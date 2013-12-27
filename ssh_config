@@ -1,0 +1,13 @@
+Host github.com
+    IdentityFile=github
+
+# allow connection sharing
+ControlMaster auto
+ControlPath /tmp/ssh_mux_%h_%p_%r
+
+# be resilient to network faults
+TCPKeepAlive no
+ServerAliveInterval 60
+ServerAliveCountMax 10
+
+

@@ -44,5 +44,12 @@ curl https://j.mp/spf13-vim3 -L -o - | sh
 # install Xdefaults
 install_file Xdefaults "$HOME/.Xdefaults"
 
+# install ssh config
+install_file ssh_config "$HOME/.ssh/config"
+
+# xmonad
+[[ -d $HOME/.xmonad ]] || mkdir -p $HOME/.xmonad
+install_file xmonad.hs "$HOME/.xmonad/xmonad.hs"
+
 # we're done, go back to the original directory
 popd > /dev/null
