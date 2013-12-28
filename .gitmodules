@@ -1,0 +1,3 @@
+[submodule "modules/git-crypt"]
+	path = modules/git-crypt
+	url = https://github.com/AGWA/git-crypt.git
