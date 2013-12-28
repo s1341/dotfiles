@@ -72,5 +72,8 @@ echo "[*] installing xmonad.hs"
 [[ -d $HOME/.xmonad ]] || mkdir -p $HOME/.xmonad
 install_file xmonad.hs "$HOME/.xmonad/xmonad.hs"
 
+echo "[*] install weechat"
+install_file weechat "$HOME/.weechat"
+
 # we're done, go back to the original directory
 popd > /dev/null
