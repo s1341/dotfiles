@@ -10,7 +10,7 @@ function realpath {
 function install_file {
     local source="$1"
     local target="$2"
-    echo install_file $source $target
+    #echo install_file $source $target
     if [[ -e $target ]]
     then
         if [[ -L $target ]]
@@ -26,6 +26,8 @@ function install_file {
 echo "[>] starting install"
 # switch to the directory of this script
 pushd $(dirname $0) > /dev/null
+echo "[!] init submodules"
+git submodule update --init --recursive
 
 # convert ssh public key to openssl compatible PEM
 # we use this PEM to encrypt some sensitive files in a pre-commit hook
@@ -39,28 +41,44 @@ if [[ ! -e modules/git-crypt/git-crypt ]]
 then
     # install git-crypt
     echo "[*] installing git-crypt"
-    git submodule init && git submodule update
     pushd modules/git-crypt > /dev/null
     make > /dev/null
     chmod +x git-crypt
     popd > /dev/null
 fi
 
-echo "[*] install vimrc files, meant to be used with spf13"
-for file in *vimrc*
-do
-    install_file $file "$HOME/.$file"
-done
-
 # install spf13 vim distribution as base, the bundles specified
 # in the vimrc.bundles.local file will automatically be installed
 # TODO: don't do the full install every time
-echo "[*] install spf13"
-#curl https://j.mp/spf13-vim3 -L -o - | sh
+echo "[*] spf13"
+if [[ ! -h "$HOME/.vim" ]] || [[ `readlink "$HOME/.vim"` != `pwd`/modules/spf13-vim/.vim ]]
+then
+    echo -e "\t[!] installing spf13"
+    pushd "modules/spf13-vim" >/dev/null
+    for file in .vim*
+    do
+        install_file $file "$HOME/$file"
+    done
+    popd >/dev/null
 
-echo "[*] build native for YouCompleteMe and vimproc"
-(cd $HOME/.vim/bundle/vimproc; make clean all)
-(cd $HOME/.vim/bundle/YouCompleteMe; ./install.sh --clang-completer --system-libclang)
+    echo -e "\t[*] install local vimrc files"
+    for file in *vimrc*
+    do
+        install_file $file "$HOME/.$file"
+    done
+    echo -e "\t[*] init bundles"
+    vim -u "$HOME/.vimrc.bundles" +BundleInstall! +BundleClean +qall
+    echo "[*] build native for YouCompleteMe and vimproc"
+    (cd $HOME/.vim/bundle/vimproc; make clean all)
+    (cd $HOME/.vim/bundle/YouCompleteMe; ./install.sh --clang-completer --system-libclang)
+else
+    echo -e "\t[*] update bundles"
+    vim +BundleUpdate +BundleClean +qall
+fi
+
+
+
+
 
 echo "[*] install Xdefaults"
 install_file Xdefaults "$HOME/.Xdefaults"
