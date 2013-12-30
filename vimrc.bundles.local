@@ -11,6 +11,7 @@ Bundle 'gregsexton/gitv'
 
 Bundle 'tpope/vim-unimpaired'
 Bundle 'tpope/vim-repeat'
+Bundle 'tpope/vim-eunuch'
 
 Bundle 'AndrewRadev/simple_bookmarks.vim'
 Bundle 'milkypostman/vim-togglelist'
@@ -28,5 +29,5 @@ Bundle 'python_match.vim'
 Bundle 'jelera/vim-javascript-syntax'
 Bundle 'marijnh/tern_for_vim'
 Bundle 'othree/javascript-libraries-syntax.vim'
-
+Bundle 'Valloric/MatchTagAlways'
 

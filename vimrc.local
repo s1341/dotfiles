@@ -95,3 +95,25 @@ function! AppendModeline()
 endfunction
 nnoremap <silent> <Leader>ml :call AppendModeline()<CR>
 
+" spf13 does horrible things when trying to 'fix' mappings for omnicomplete
+" undo that shit:
+iunmap <expr> <Esc>
+iunmap <expr> <CR>
+iunmap <expr> <Down>
+iunmap <expr> <Up>
+iunmap <expr> <C-d>
+iunmap <expr> <C-u>
+" <CR> should select the currently highlighted term
+inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+
+" decrease the timeouts to saner values, so that there is almost no delay
+" moving from mode to mode.
+set timeoutlen=200
+set ttimeoutlen=200
+
+" lines should be 80 chars
+set textwidth=80
+set colorcolumn=+1
+hi ColorColumn ctermfg=250 ctermbg=234
+" autowrap lines in markdown files
+au FileType markdown setlocal fo+=t
