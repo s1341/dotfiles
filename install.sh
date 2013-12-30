@@ -59,6 +59,8 @@ then
     do
         install_file $file "$HOME/$file"
     done
+    mkdir -p .vim/bundle >/dev/null
+    git clone -v https://github.com/gmarik/vundle.git .vim/bundle/vundle
     popd >/dev/null
 
     echo -e "\t[*] install local vimrc files"
