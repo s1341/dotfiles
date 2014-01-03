@@ -8,8 +8,11 @@ function realpath {
 }
 
 function install_file {
-    local source="$1"
-    local target="$2"
+    local args=("$@")
+    echo "installfile ${args[@]}"
+    local source="${args[0]}"
+    local target="${args[1]}"
+    local modes="${args[2]}"
     #echo install_file $source $target
     if [[ -e $target ]]
     then
@@ -20,7 +23,10 @@ function install_file {
             mv $target $target.$(date +'%Y%m%d_%H%M');
         fi
     fi
-    ln -s $(realpath $source) $target
+    local realsource=$(realpath $source)
+    ln -s $realsource $target
+    [[ ! -z $modes ]] && chmod $modes $target
+
 }
 
 echo "[>] starting install"
@@ -31,10 +37,11 @@ git submodule update --init --recursive
 
 # convert ssh public key to openssl compatible PEM
 # we use this PEM to encrypt some sensitive files in a pre-commit hook
-if [[ ! -e id_rsa.pem.pub ]]
+if [[ ! -e keys/id_rsa.pem.pub ]]
 then
     echo "[*] exporting public key"
-    ssh-keygen -f ~/.ssh/id_rsa.pub -e -m PKCS8 > id_rsa.pub.pem
+    mkdir -p keys
+    ssh-keygen -f ~/.ssh/id_rsa.pub -e -m PKCS8 > keys/id_rsa.pub.pem
 fi
 
 if [[ ! -e modules/git-crypt/git-crypt ]]
@@ -86,7 +93,7 @@ echo "[*] install Xdefaults"
 install_file Xdefaults "$HOME/.Xdefaults"
 
 echo "[*] install ssh config"
-install_file ssh_config "$HOME/.ssh/config"
+install_file ssh_config "$HOME/.ssh/config" 600
 
 echo "[*] installing xmonad.hs"
 [[ -d $HOME/.xmonad ]] || mkdir -p $HOME/.xmonad
