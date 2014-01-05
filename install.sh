@@ -102,5 +102,10 @@ install_file xmonad.hs "$HOME/.xmonad/xmonad.hs"
 echo "[*] install weechat"
 install_file weechat "$HOME/.weechat"
 
+echo "[*] install zsh"
+install_file zsh/grlmzshrc "$HOME/.zshrc"
+install_file zsh/zshrc.local "$HOME/.zshrc.local"
+
+
 # we're done, go back to the original directory
 popd > /dev/null
