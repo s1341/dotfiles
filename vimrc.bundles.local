@@ -21,6 +21,8 @@ Bundle 'Shougo/vimshell.vim'
 Bundle 'Shougo/unite.vim'
 Bundle 'Shougo/unite-outline'
 
+" Markdown
+Bundle "waylan/vim-markdown-extra-preview"
 " python
 Bundle 'python.vim'
 Bundle 'python_match.vim'

@@ -17,7 +17,7 @@ urxvt*perl-lib:        /usr/lib/urxvt/perl/
 urxvt*perl-ext-common: default,url-select,clipboard,searchable-scrollback,font-size,keyboard-select
 
 urxvt*url-select.launcher:     /usr/bin/chromium
-urxvt*keysym.M-u:    perl:url-select:select_next
+!urxvt*keysym.M-u:    perl:url-select:select_next
 urxvt*keysym.M-Escape:   perl:keyboard-select:activate
 urxvt*keysym.M-c:    perl:clipboard:copy
 urxvt*keysym.M-v:    perl:clipboard:paste

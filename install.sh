@@ -103,8 +103,10 @@ echo "[*] install weechat"
 install_file weechat "$HOME/.weechat"
 
 echo "[*] install zsh"
-install_file zsh/grlmzshrc "$HOME/.zshrc"
-install_file zsh/zshrc.local "$HOME/.zshrc.local"
+pushd zsh >/dev/null
+install_file grmlzshrc "$HOME/.zshrc"
+install_file zshrc.local "$HOME/.zshrc.local"
+popd >/dev/null
 
 
 # we're done, go back to the original directory

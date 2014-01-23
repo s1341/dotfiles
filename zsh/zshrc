@@ -1,0 +1,80 @@
+[[ -z $DOTFILES_ROOT ]] && DOTFILES_ROOT=$HOME/github/dotfiles
+
+DEFAULT_USER=srubenst
+
+# source antigen
+source $DOTFILES_ROOT/modules/antigen/antigen.zsh
+
+# Checks
+is_mac() { [[ $OSTYPE == darwin* ]] }
+is_freebsd() { [[ $OSTYPE == freebsd* ]] }
+is_linux() { [[ $OSTYPE == linux-gnu ]] }
+is_gentoo() { [[ -e /etc/gentoo-release ]] }
+
+# make words only alphanumeric chars, handy for ctrl-w
+autoload -U select-word-style
+select-word-style bash
+
+# vim mode
+bindkey -v
+# backspace and ^h working even after returning from command mode
+bindkey '^?' backward-delete-char
+bindkey '^h' backward-delete-char
+# ctrl-w should still kill previous word
+bindkey '^w' backward-kill-word
+# (ctrl-)home and -end should still work
+bindkey "^[[7^" beginning-of-line
+bindkey "^[[8^" end-of-line
+bindkey "^[[7~" beginning-of-line
+bindkey "^[[8~" end-of-line
+# ctrl-left/-right move back/foward a word
+bindkey "\e[1;5D" backward-word
+bindkey "^[OD" backward-word
+bindkey "^[Od" backward-word
+bindkey "\e[1;5C" forward-word
+bindkey "^[OC" forward-word
+bindkey "^[Oc" forward-word
+
+# shift-up, -down should move up/down in history using command till now as
+# filter
+bindkey "^[[a" history-beginning-search-backward
+bindkey "^[[b" history-beginning-search-forward
+
+# incremental search backward
+bindkey "^R" history-incremental-search-backward
+
+# undo expansion/edit
+bindkey "^[u" undo
+bindkey "^_" undo
+bindkey "^[r" redo
+
+bindkey " " magic-space
+
+# timestamps in history, please
+HIST_STAMPS="yyyy-mm-dd"
+
+# load oh-my-zsh
+antigen use oh-my-zsh
+
+antigen bundle git
+antigen bundle command-not-found
+antigen bundle vi-mode
+
+#antigen bundle hchbaw/opp.zsh
+antigen bundle zsh-users/zsh-syntax-highlighting
+
+antigen theme bureau
+
+antigen apply
+
+export DOTFILES_ROOT
+export EDITOR=vim
+export PATH=$PATH:$DOTFILES_ROOT/modules/git-crypt
+
+# aliases!
+[[ -e $DOTFILES_ROOT/zsh/aliases.zsh ]] && source $DOTFILES_ROOT/zsh/aliases.zsh
+# theme!
+[[ -e $DOTFILES_ROOT/zsh/theme.zsh ]] && source $DOTFILES_ROOT/zsh/theme.zsh
+
+# sasenv
+[[ -e $HOME/.sas/login.sh ]] && source $HOME/.sas/login.sh
