@@ -64,5 +64,5 @@ build_prompt () {
     echo "%{$FG[104]%}$%{$reset_color%}"
 }
 
-PROMPT='%{%f%b%k%}$(build_prompt) '
-RPROMPT='$(prompt_git)'
+PROMPT='%{%f%b%k%}$(build_prompt) %{$reset_color%}'
+RPROMPT='$(prompt_git)%{$reset_color%}'
