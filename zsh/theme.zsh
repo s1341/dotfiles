@@ -20,9 +20,9 @@ prompt_context () {
     local context=""
     local user=`whoami`
     if [[ "$DEFAULT_USER" != "$user" || -n "$SSH_CLIENT" ]]; then
-        context="%{$fg[yellow]%}⚡ $user@%m %{$reset_color%}"
+        context="[%{$fg[blue]%}⚡ $user@%m%{$reset_color%}]"
     elif [[ -n "$SUDO_USER" ]]; then
-        context="%{$fg[red]%}⚙ $user@%m %{$reset_color%}"
+        context="[%{$fg[red]%}⚙ $user@%m%{$reset_color%}]"
     fi
     echo -n $context
 }
@@ -55,8 +55,8 @@ prompt_vim_mode () {
 build_prompt () {
     RETVAL=$?
     echo -n "╭─"
-    prompt_context
     prompt_vim_mode
+    prompt_context
     prompt_path
     echo
     echo -n "╰─"
