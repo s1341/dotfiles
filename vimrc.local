@@ -20,6 +20,24 @@ if has("spell")
     hi SpellRare   guisp=#FFFFFF gui=undercurl cterm=underline
 endif
 
+" Time to learn to use the proper movement commands
+nnoremap <left> <nop>
+nnoremap <right> <nop>
+nnoremap <down> <nop>
+nnoremap <up> <nop>
+inoremap <left> <nop>
+inoremap <right> <nop>
+inoremap <down> <nop>
+inoremap <up> <nop>
+nnoremap j gj
+nnoremap k gk
+nnoremap <C-k> <Pageup>
+nnoremap <C-j> <Pagedown>
+nnoremap <C-H> :bp<cr>
+nnoremap <C-L> :bn<cr>
+
+" when in insert mode, why not escape by hitting jj?
+inoremap jj <esc>
 
 " https://github.com/majutsushi/tagbar/issues/99
 set shell=/bin/sh
@@ -29,6 +47,14 @@ nnoremap <Leader>gD :diffoff<cr>:bd<cr>:Gedit<cr>
 
 " replace item under cursor
 nnoremap <Leader>r :%s/<C-r><C-w>/
+
+" Search using real regexes, not borked vim ones.
+nnoremap / /\v
+vnoremap / /\v
+
+" tab to hop between matching brackets
+nnoremap <tab> %
+vnoremap <tab> %
 
 " unite:
 nnoremap <space>p :Unite -start-insert file_rec/async:!<cr>
@@ -51,9 +77,14 @@ nnoremap <C-b> :Bookmark<space><C-r><C-w>
 nmap <script> <silent> <space>l :call ToggleLocationList()<CR>
 nmap <script> <silent> <space>q :call ToggleQuickfixList()<CR>
 
+" never ever bring up help on f1. in fact, map it to ESC in I and V
+inoremap <F1> <ESC>
+vnoremap <F1> <ESC>
+
+" because sometimes you miss the shift
+nnoremap ; :
+
 " buffer cycling
-noremap! <Leader><Left> :bp<CR>
-noremap! <Leader><Right> :bn<CR>
 noremap <F1> :SwitchBuffer 0<CR>
 noremap <F2> :SwitchBuffer 1<CR>
 noremap <F3> :SwitchBuffer 2<CR>
@@ -105,7 +136,6 @@ iunmap <expr> <C-d>
 iunmap <expr> <C-u>
 " <CR> should select the currently highlighted term
 inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-
 " decrease the timeouts to saner values, so that there is almost no delay
 " moving from mode to mode.
 set timeoutlen=200
