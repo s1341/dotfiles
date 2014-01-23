@@ -11,6 +11,14 @@ is_freebsd() { [[ $OSTYPE == freebsd* ]] }
 is_linux() { [[ $OSTYPE == linux-gnu ]] }
 is_gentoo() { [[ -e /etc/gentoo-release ]] }
 
+if is_mac; then
+    # so brew installed stuff will work:
+    PATH=/usr/local/bin:$PATH
+    # because otherwise powerline fonts fail :(
+    export LC_ALL=en_us.UTF-8
+    export LANG=en_us.UTF-8
+fi
+
 # make words only alphanumeric chars, handy for ctrl-w
 autoload -U select-word-style
 select-word-style bash
@@ -63,7 +71,7 @@ antigen bundle vi-mode
 #antigen bundle hchbaw/opp.zsh
 antigen bundle zsh-users/zsh-syntax-highlighting
 
-antigen theme bureau
+#antigen theme bureau
 
 antigen apply
 

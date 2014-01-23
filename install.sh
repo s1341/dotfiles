@@ -104,8 +104,7 @@ install_file weechat "$HOME/.weechat"
 
 echo "[*] install zsh"
 pushd zsh >/dev/null
-install_file grmlzshrc "$HOME/.zshrc"
-install_file zshrc.local "$HOME/.zshrc.local"
+install_file zshrc "$HOME/.zshrc"
 popd >/dev/null
 
 
