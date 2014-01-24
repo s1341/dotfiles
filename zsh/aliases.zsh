@@ -1,4 +1,4 @@
-alias rm="rm --one-file-system"
+is_mac || alias rm="rm --one-file-system"
 
 # hexdump
 alias hd="hexdump -C"
@@ -15,6 +15,10 @@ mkcd () {
     mkdir -p $argv
     cd $argv
 }
+
+# cd shortcuts
+is_mac && alias cdd="cd $HOME/Downloads" || alias cdd="cd $HOME/data/downloads"
+alias cdlh="cd /media/lab/home/srubenst"
 
 export H="$HOME"
 export LH="/media/lab/home/srubenst"
