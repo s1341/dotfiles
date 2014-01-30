@@ -49,7 +49,8 @@ function zle-keymap-select {
 zle -N zle-keymap-select
 
 prompt_vim_mode () {
-    echo -n "%{$fg[yellow]%}$VIMODE%{$reset_color%}"
+    [[ $VIMODE == "[i]" ]] && echo -n "%{$fg[yellow]%}$VIMODE%{$reset_color%}"
+    [[ $VIMODE == "[n]" ]] && echo -n "%{$fg[red]%}$VIMODE%{$reset_color%}"
 }
 
 build_prompt () {
