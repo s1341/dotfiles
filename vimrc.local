@@ -21,6 +21,10 @@ if has("spell")
 endif
 
 " Time to learn to use the proper movement commands
+vnoremap <left> <nop>
+vnoremap <right> <nop>
+vnoremap <down> <nop>
+vnoremap <up> <nop>
 nnoremap <left> <nop>
 nnoremap <right> <nop>
 nnoremap <down> <nop>
@@ -29,12 +33,16 @@ inoremap <left> <nop>
 inoremap <right> <nop>
 inoremap <down> <nop>
 inoremap <up> <nop>
-nnoremap j gj
-nnoremap k gk
-nnoremap <C-k> <Pageup>
-nnoremap <C-j> <Pagedown>
-nnoremap <C-H> :bp<cr>
-nnoremap <C-L> :bn<cr>
+
+" home keys, not off-by-one!
+nnoremap k gj
+nnoremap l gk
+nnoremap j h
+nnoremap ; l
+nnoremap <C-l> <Pageup>
+nnoremap <C-k> <Pagedown>
+nnoremap <C-j> :bp<cr>
+nnoremap <C-;> :bn<cr>
 
 " when in insert mode, why not escape by hitting jj?
 inoremap jj <esc>
@@ -81,9 +89,6 @@ nmap <script> <silent> <space>q :call ToggleQuickfixList()<CR>
 inoremap <F1> <ESC>
 vnoremap <F1> <ESC>
 
-" because sometimes you miss the shift
-nnoremap ; :
-
 " buffer cycling
 noremap <F1> :SwitchBuffer 0<CR>
 noremap <F2> :SwitchBuffer 1<CR>
@@ -111,8 +116,8 @@ function! s:SwitchBuffer(index)
 endfun
 
 " make home smarter (http://vim.wikia.com/wiki/Smart_home)
-noremap <expr> <silent> <Home> col('.') == match(getline('.'),'\S')+1 ? '0' : '^'
-imap <silent> <Home> <C-O><Home>
+noremap <expr> <silent> J col('.') == match(getline('.'),'\S')+1 ? '0' : '^'
+imap <silent> J <C-O><Home>
 
 
 " Append modeline after last line in buffer.
