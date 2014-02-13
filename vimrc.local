@@ -47,6 +47,12 @@ nnoremap <C-;> :bn<cr>
 " when in insert mode, why not escape by hitting jj?
 inoremap jj <esc>
 
+" work with system clipboard
+inoremap <M-p> <Esc>"+pi
+inoremap <M-P> <Esc>"+Pi
+vnoremap <M-y> <Esc>"+y
+nnoremap <M-y> <Esc>"+y
+
 " https://github.com/majutsushi/tagbar/issues/99
 set shell=/bin/sh
 
