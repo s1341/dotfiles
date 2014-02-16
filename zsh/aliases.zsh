@@ -16,6 +16,14 @@ mkcd () {
     cd $argv
 }
 
+sshclean () {
+    sed -i "/$1/d" ~/.ssh/known_hosts
+}
+
+g13conf () {
+    java -jar ~/outside_tools/linux-g13-driver-read-only/deploy/Linux-G13_1.0-r44M/Linux-G13-GUI.jar
+}
+
 # cd shortcuts
 is_mac && alias cdd="cd $HOME/Downloads" || alias cdd="cd $HOME/data/downloads"
 alias cdlh="cd /media/lab/home/srubenst"
