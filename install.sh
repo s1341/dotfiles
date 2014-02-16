@@ -92,6 +92,11 @@ fi
 echo "[*] install Xdefaults"
 install_file Xdefaults "$HOME/.Xdefaults"
 
+echo "[*] install Xmodmap"
+install_file Xmodmap "$HOME/.Xmodmap"
+echo "[*] install xinitrc"
+install_file xinitrc "$HOME/.xinitrc"
+
 echo "[*] install ssh config"
 install_file ssh_config "$HOME/.ssh/config" 600
 
