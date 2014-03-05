@@ -86,13 +86,12 @@ main = do
       , layoutHook = avoidStruts $ smartBorders (ResizableTall 1 (3/100) (1/2) [] ||| layoutHook defaultConfig)
       , keys = myKeys
     } 
-
 myWorkspaces = ["1:web","2:terms","3:vms","4:tools","5:term2","6:hell","7:hades", "8:neverland", "9:chat"]
 
 myManageHook = ( composeAll
     [ className =? "Vmware" --> doShift "3:vms"
     , className =? "Chromium" --> doShift "1:web"
-    , className =? "Idaq" --> doShift "4:tools"
+    --, className =? "Idaq" --> doShift "4:tools"
     , className =? "htop" --> doShift "7:stats"
     ] )
 
