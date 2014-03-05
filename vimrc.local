@@ -34,15 +34,14 @@ inoremap <right> <nop>
 inoremap <down> <nop>
 inoremap <up> <nop>
 
-" home keys, not off-by-one!
-nnoremap k gj
-nnoremap l gk
-nnoremap j h
-nnoremap ; l
-nnoremap <C-l> <Pageup>
-nnoremap <C-k> <Pagedown>
-nnoremap <C-j> :bp<cr>
-nnoremap <C-;> :bn<cr>
+nnoremap j gj
+nnoremap k gk
+nnoremap <C-k> <Pageup>
+nnoremap <C-j> <Pagedown>
+nnoremap <C-l> $
+" make home smarter (http://vim.wikia.com/wiki/Smart_home)
+noremap <expr> <silent> <C-h> col('.') == match(getline('.'),'\S')+1 ? '0' : '^'
+imap <silent> J <C-O><Home>
 
 " when in insert mode, why not escape by hitting jj?
 inoremap jj <esc>
@@ -120,11 +119,6 @@ function! s:SwitchBuffer(index)
     execute "b" . l:num
     return 1
 endfun
-
-" make home smarter (http://vim.wikia.com/wiki/Smart_home)
-noremap <expr> <silent> J col('.') == match(getline('.'),'\S')+1 ? '0' : '^'
-imap <silent> J <C-O><Home>
-
 
 " Append modeline after last line in buffer.
 " Use substitute() instead of printf() to handle '%%s' modeline in LaTeX
