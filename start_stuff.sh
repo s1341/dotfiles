@@ -1,18 +1,38 @@
-pushd ~/data/storage
-echo "Mounting crypto storage"
-echo "Enter sudo password when prompted, then crypto passphrase"
-sudo ~/data/storage/mountstorage email
-sudo ~/data/storage/mountstorage docs
+function is_mounted () {
+	mount | grep -q $1;
+	return $?
+}
 
-echo "Starting g13 stuff"
-sudo modprobe uinput
-sudo chgrp uucp /dev/uinput
-sudo chmod g+rw /dev/uinput
-stfu ~/outside_tools/linux-g13-driver-read-only/source/Linux-G13-Driver
+function is_running () {
+	pidof $1 >/dev/null 2>&1
+	return $?
+}
 
-echo "Starting autossh"
-~/autossh.sh
+is_mounted /media/storage/email || is_mounted /media/storage/docs || {
+	pushd ~/data/storage
+	echo "Mounting crypto storage"
+	echo "Enter sudo password when prompted, then crypto passphrase"
+	is_mounted /media/storage/email || sudo ~/data/storage/mountstorage email
+	is_mounted /media/storage/docs || sudo ~/data/storage/mountstorage docs
+	popd
+}
 
-echo "Starting vmware, chromium"
-stfu vmware
-stfu chromium
+is_running Linux-G13-Driver || {
+	echo "Starting g13 stuff"
+	sudo modprobe uinput
+	sudo chgrp uucp /dev/uinput
+	sudo chmod g+rw /dev/uinput
+	nohup ~/outside_tools/linux-g13-driver-read-only/source/Linux-G13-Driver &
+}
+
+
+is_running autossh || {
+	echo "Starting autossh"
+	~/autossh.sh
+}
+
+is_running vmware || is_running chromium || {
+	echo "Starting vmware, chromium"
+	is_running vmware || nohup vmware &
+	is_running chromium || nohup chromium &
+}

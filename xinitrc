@@ -13,4 +13,5 @@ xsetroot -solid midnightblue
 # keybindings and g13
 xmodmap .Xmodmap
 
+xhost +
 exec ck-launch-session xmonad

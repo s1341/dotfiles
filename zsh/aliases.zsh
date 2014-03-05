@@ -21,7 +21,9 @@ sshclean () {
 }
 
 g13conf () {
+    killall Linux-G13-Driver
     java -jar ~/outside_tools/linux-g13-driver-read-only/deploy/Linux-G13_1.0-r44M/Linux-G13-GUI.jar
+    nohup ~/outside_tools/linux-g13-driver-read-only/source/Linux-G13-Driver &
 }
 
 # cd shortcuts
