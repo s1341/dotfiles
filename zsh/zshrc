@@ -83,6 +83,11 @@ export PATH=$PATH:$DOTFILES_ROOT/modules/git-crypt
 [[ -e $DOTFILES_ROOT/zsh/aliases.zsh ]] && source $DOTFILES_ROOT/zsh/aliases.zsh
 # theme!
 [[ -e $DOTFILES_ROOT/zsh/theme.zsh ]] && source $DOTFILES_ROOT/zsh/theme.zsh
+# other cool stuff:
+for f in open scriptlets
+do
+    [[ -e $DOTFILES_ROOT/zsh/$f.zsh ]] && source $DOTFILES_ROOT/zsh/$f.zsh
+done
 
 # sasenv
 [[ -e $HOME/.sas/login.sh ]] && source $HOME/.sas/login.sh
