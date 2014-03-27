@@ -37,3 +37,4 @@ Bundle 'marijnh/tern_for_vim'
 Bundle 'othree/javascript-libraries-syntax.vim'
 Bundle 'Valloric/MatchTagAlways'
 
+Bundle 'rking/ag.vim'
