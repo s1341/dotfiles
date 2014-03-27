@@ -17,7 +17,7 @@ mkcd () {
 }
 
 sshclean () {
-    sed -i "/$1/d" ~/.ssh/known_hosts
+    sed -i"bak" "/$1/d" ~/.ssh/known_hosts
 }
 
 g13conf () {
