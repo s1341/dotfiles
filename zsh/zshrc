@@ -15,8 +15,8 @@ if is_mac; then
     # so brew installed stuff will work:
     PATH=/usr/local/bin:$PATH
     # because otherwise powerline fonts fail :(
-    export LC_ALL=en_us.UTF-8
-    export LANG=en_us.UTF-8
+    export LC_ALL=en_US.UTF-8
+    export LANG=en_US.UTF-8
 fi
 
 # make words only alphanumeric chars, handy for ctrl-w
