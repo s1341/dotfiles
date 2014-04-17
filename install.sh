@@ -9,10 +9,11 @@ function realpath {
 
 function install_file {
     local args=("$@")
-    echo "installfile ${args[@]}"
     local source="${args[0]}"
     local target="${args[1]}"
     local modes="${args[2]}"
+    [[ ! -e $source ]] && return 1
+    echo "installfile ${args[@]}"
     #echo install_file $source $target
     if [[ -e $target ]]
     then
@@ -58,32 +59,19 @@ fi
 # in the vimrc.bundles.local file will automatically be installed
 # TODO: don't do the full install every time
 echo "[*] spf13"
-if [[ ! -h "$HOME/.vim" ]] || [[ `readlink "$HOME/.vim"` != `pwd`/modules/spf13-vim/.vim ]]
-then
-    echo -e "\t[!] installing spf13"
-    pushd "modules/spf13-vim" >/dev/null
-    for file in .vim*
-    do
-        install_file $file "$HOME/$file"
-    done
-    mkdir -p .vim/bundle >/dev/null
-    git clone -v https://github.com/gmarik/vundle.git .vim/bundle/vundle
-    popd >/dev/null
-
-    echo -e "\t[*] install local vimrc files"
-    for file in *vimrc*
-    do
-        install_file $file "$HOME/.$file"
-    done
-    echo -e "\t[*] init bundles"
-    vim -u "$HOME/.vimrc.bundles" +BundleInstall! +BundleClean +qall
-    echo "[*] build native for YouCompleteMe and vimproc"
-    (cd $HOME/.vim/bundle/vimproc; make clean all)
-    (cd $HOME/.vim/bundle/YouCompleteMe; ./install.sh --clang-completer --system-libclang)
-else
-    echo -e "\t[*] update bundles"
-    vim +BundleUpdate +BundleClean +qall
-fi
+echo -e "\t[*] install local vimrc files"
+for file in vimrc.*
+do
+    install_file $file $HOME/.$file
+done
+echo -e "\t[!] installing spf13"
+pushd "modules/spf13-vim" >/dev/null
+./bootstrap.sh && {
+	echo "[*] build native for YouCompleteMe and vimproc"
+	(cd $HOME/.vim/bundle/vimproc; make clean all)
+	(cd $HOME/.vim/bundle/YouCompleteMe; ./install.sh --clang-completer --system-libclang)
+}
+popd >/dev/null
 
 
 
