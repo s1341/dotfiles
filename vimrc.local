@@ -41,7 +41,7 @@ nnoremap <C-j> <Pagedown>
 nnoremap <C-l> $
 " make home smarter (http://vim.wikia.com/wiki/Smart_home)
 noremap <expr> <silent> <C-h> col('.') == match(getline('.'),'\S')+1 ? '0' : '^'
-imap <silent> J <C-O><Home>
+noremap <silent> J <C-O><Home>
 
 " when in insert mode, why not escape by hitting jj?
 inoremap jj <esc>

@@ -22,7 +22,7 @@ is_running Linux-G13-Driver || {
 	sudo modprobe uinput
 	sudo chgrp uucp /dev/uinput
 	sudo chmod g+rw /dev/uinput
-	nohup ~/outside_tools/linux-g13-driver-read-only/source/Linux-G13-Driver &
+	~/outside_tools/linux-g13-driver-read-only/source/Linux-G13-Driver >/dev/null 2>&1 &
 }
 
 
@@ -33,6 +33,8 @@ is_running autossh || {
 
 is_running vmware || is_running chromium || {
 	echo "Starting vmware, chromium"
-	is_running vmware || nohup vmware &
-	is_running chromium || nohup chromium &
+	is_running vmware || vmware >/dev/null 2>&1 &
+	is_running chromium || chromium >/dev/null 2>&1 &
 }
+
+znc
