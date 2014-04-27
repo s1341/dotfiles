@@ -38,11 +38,14 @@ is_mac && alias ls="ls -lG"
 is_linux && alias ls="ls -l --color"
 
 function pygmentize_cat {
-  for arg in "$@"; do
-    pygmentize -g "${arg}" 2> /dev/null || /bin/cat "${arg}"
-  done
+    for arg in "$@"; do
+        pygmentize -g "${arg}" 2> /dev/null || /bin/cat "${arg}"
+    done
 }
 command -v pygmentize > /dev/null && alias pcat=pygmentize_cat
 
+function hdl {
+    hexdump -C $@ | less
+}
 # source local aliases for stuff I don't want to push to external git
 [[ -e $HOME/.zshrc.aliases.local ]] && source $HOME/.zshrc.aliases.local
