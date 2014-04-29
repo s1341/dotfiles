@@ -10,3 +10,9 @@
 [submodule "modules/oh-my-zsh"]
 	path = modules/oh-my-zsh
 	url = https://github.com/robbyrussell/oh-my-zsh.git
+[submodule "modules/xmonad-dzen"]
+	path = modules/xmonad-dzen
+	url = http://github.com/Nepherte/XMonad
+[submodule "modules/powerline-fonts"]
+	path = modules/powerline-fonts
+	url = https://github.com/Lokaltog/powerline-fonts

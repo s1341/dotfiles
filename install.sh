@@ -79,6 +79,8 @@ popd >/dev/null
 
 echo "[*] install Xdefaults"
 install_file Xdefaults "$HOME/.Xdefaults"
+[[ -d $HOME/.fonts ]] || mkdir -p $HOME/.fonts
+install_file modules/powerline-fonts/DejaVuSansMono/*.ttf "$HOME/.fonts/"
 
 echo "[*] install Xmodmap"
 install_file Xmodmap "$HOME/.Xmodmap"
@@ -91,6 +93,8 @@ install_file ssh_config "$HOME/.ssh/config" 600
 echo "[*] installing xmonad.hs"
 [[ -d $HOME/.xmonad ]] || mkdir -p $HOME/.xmonad
 install_file xmonad.hs "$HOME/.xmonad/xmonad.hs"
+[[ -d $HOME/.xmonad/lib ]] || mkdir -p $HOME/.xmonad/lib
+install_file modules/xmonad-dzen/lib/Dzen.hs "$HOME/.xmonad/lib/Dzen.hs"
 
 echo "[*] install weechat"
 install_file weechat "$HOME/.weechat"
