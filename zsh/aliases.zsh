@@ -47,5 +47,10 @@ command -v pygmentize > /dev/null && alias pcat=pygmentize_cat
 function hdl {
     hexdump -C $@ | less
 }
+
+function stringsl {
+    strings $@ | less
+}
+
 # source local aliases for stuff I don't want to push to external git
 [[ -e $HOME/.zshrc.aliases.local ]] && source $HOME/.zshrc.aliases.local
