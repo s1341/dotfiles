@@ -52,5 +52,7 @@ function stringsl {
     strings $@ | less
 }
 
+alias ctw="ssh srubenst@work"
+
 # source local aliases for stuff I don't want to push to external git
 [[ -e $HOME/.zshrc.aliases.local ]] && source $HOME/.zshrc.aliases.local
