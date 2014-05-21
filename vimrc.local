@@ -95,18 +95,18 @@ inoremap <F1> <ESC>
 vnoremap <F1> <ESC>
 
 " buffer cycling
-noremap <F1> :SwitchBuffer 0<CR>
-noremap <F2> :SwitchBuffer 1<CR>
-noremap <F3> :SwitchBuffer 2<CR>
-noremap <F4> :SwitchBuffer 3<CR>
-noremap <F5> :SwitchBuffer 4<CR>
-noremap <F6> :SwitchBuffer 5<CR>
-noremap <F7> :SwitchBuffer 6<CR>
-noremap <F8> :SwitchBuffer 7<CR>
-noremap <F9> :SwitchBuffer 8<CR>
-noremap <F10> :SwitchBuffer 9<CR>
-noremap <F11> :SwitchBuffer 10<CR>
-noremap <F12> :SwitchBuffer 11<CR>
+noremap <silent> <F1> :SwitchBuffer 0<CR>
+noremap <silent> <F2> :SwitchBuffer 1<CR>
+noremap <silent> <F3> :SwitchBuffer 2<CR>
+noremap <silent> <F4> :SwitchBuffer 3<CR>
+noremap <silent> <F5> :SwitchBuffer 4<CR>
+noremap <silent> <F6> :SwitchBuffer 5<CR>
+noremap <silent> <F7> :SwitchBuffer 6<CR>
+noremap <silent> <F8> :SwitchBuffer 7<CR>
+noremap <silent> <F9> :SwitchBuffer 8<CR>
+noremap <silent> <F10> :SwitchBuffer 9<CR>
+noremap <silent> <F11> :SwitchBuffer 10<CR>
+noremap <silent> <F12> :SwitchBuffer 11<CR>
 
 command! -nargs=1 SwitchBuffer call s:SwitchBuffer(<f-args>)
 function! s:SwitchBuffer(index)
@@ -153,3 +153,6 @@ hi ColorColumn ctermfg=250 ctermbg=234
 " autowrap lines in markdown, python files
 au FileType markdown setlocal fo+=t
 au FileType python setlocal fo+=t
+
+" yankring is mapping <C-p> to something. I want <C-p> for CtrlP!
+nnoremap <silent> <C-P> :CtrlP<cr>

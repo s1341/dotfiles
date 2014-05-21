@@ -21,14 +21,14 @@ Bundle 'Shougo/vimshell.vim'
 "Bundle 'Shougo/unite.vim'
 "Bundle 'Shougo/unite-outline'
 
-Bundle "vim-scripts/YankRing.vim"
+"Bundle "vim-scripts/YankRing.vim"
 " Markdown
 Bundle "waylan/vim-markdown-extra-preview"
 Bundle "junegunn/vim-easy-align"
 Bundle "jngeist/vim-multimarkdown"
 " python
-Bundle 'python.vim'
-Bundle 'python_match.vim'
+"Bundle 'python.vim'
+"Bundle 'python_match.vim'
 Bundle 'andviro/flake8-vim'
 
 " javascript
