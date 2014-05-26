@@ -53,6 +53,9 @@ function stringsl {
 }
 
 alias ctw="ssh srubenst@work"
+function cfw () {
+    scp -r srubenst@work:$1 .
+}
 
 # source local aliases for stuff I don't want to push to external git
 [[ -e $HOME/.zshrc.aliases.local ]] && source $HOME/.zshrc.aliases.local
