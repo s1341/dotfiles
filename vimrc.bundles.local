@@ -1,4 +1,4 @@
-let g:spf13_bundle_groups=['general', 'programming', 'php', 'ruby',  'go', 'twig', 'javascript', 'haskell', 'html', 'misc', 'scala']
+let g:spf13_bundle_groups=['python', 'general', 'programming', 'php', 'ruby',  'go', 'twig', 'javascript', 'haskell', 'html', 'misc', 'scala']
 
 Bundle 'Valloric/YouCompleteMe'
 Bundle 'Raimondi/delimitMate'
@@ -12,6 +12,9 @@ Bundle 'gregsexton/gitv'
 Bundle 'tpope/vim-unimpaired'
 Bundle 'tpope/vim-repeat'
 Bundle 'tpope/vim-eunuch'
+
+Bundle 'myusuf3/numbers.vim'
+Bundle 'yegappan/grep'
 
 Bundle 'AndrewRadev/simple_bookmarks.vim'
 Bundle 'milkypostman/vim-togglelist'
@@ -29,7 +32,7 @@ Bundle "jngeist/vim-multimarkdown"
 " python
 "Bundle 'python.vim'
 "Bundle 'python_match.vim'
-Bundle 'andviro/flake8-vim'
+"Bundle 'andviro/flake8-vim'
 
 " javascript
 Bundle 'jelera/vim-javascript-syntax'
