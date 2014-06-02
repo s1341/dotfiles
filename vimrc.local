@@ -20,6 +20,7 @@ if has("spell")
     hi SpellRare   guisp=#FFFFFF gui=undercurl cterm=underline
 endif
 
+
 " Time to learn to use the proper movement commands
 vnoremap <left> <nop>
 vnoremap <right> <nop>
@@ -155,4 +156,5 @@ au FileType markdown setlocal fo+=t
 au FileType python setlocal fo+=t
 
 " yankring is mapping <C-p> to something. I want <C-p> for CtrlP!
+" for some reason, stock spf13 is only adding a <D-t> mapping"
 nnoremap <silent> <C-P> :CtrlP<cr>
