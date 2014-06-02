@@ -26,13 +26,17 @@ g13conf () {
     nohup ~/outside_tools/linux-g13-driver-read-only/source/Linux-G13-Driver &
 }
 
-# cd shortcuts
-is_mac && alias cdd="cd $HOME/Downloads" || alias cdd="cd $HOME/data/downloads"
-alias cdlh="cd /media/lab/home/srubenst"
-
 export H="$HOME"
 export LH="/media/lab/home/srubenst"
-export D="$HOME/data/downloads"
+alias cdlh="cd $LH"
+is_mac && export D="$HOME/Downloads" || export D="$HOME/data/downloads"
+alias cdd="cd $D"
+
+function cfd () {
+  cp $D/$1 .
+}
+
+alias dv="dirs -v"
 
 is_mac && alias ls="ls -lG"
 is_linux && alias ls="ls -l --color"
@@ -56,6 +60,7 @@ alias ctw="ssh srubenst@work"
 function cfw () {
     scp -r srubenst@work:$1 .
 }
+
 
 # source local aliases for stuff I don't want to push to external git
 [[ -e $HOME/.zshrc.aliases.local ]] && source $HOME/.zshrc.aliases.local
