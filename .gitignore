@@ -2,3 +2,6 @@ weechat/*.log
 weechat/log/
 
 keys
+weechat/urlserver_list.txt
+keyfile
+weechat/script/
