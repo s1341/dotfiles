@@ -26,7 +26,7 @@ Bundle 'Shougo/vimshell.vim'
 
 "Bundle "vim-scripts/YankRing.vim"
 " Markdown
-Bundle "waylan/vim-markdown-extra-preview"
+Bundle "suan/vim-instant-markdown"
 Bundle "junegunn/vim-easy-align"
 Bundle "jngeist/vim-multimarkdown"
 " python
