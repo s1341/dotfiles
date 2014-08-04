@@ -10,7 +10,6 @@ Bundle 'tpope/vim-sleuth'
 Bundle 'gregsexton/gitv'
 
 Bundle 'tpope/vim-unimpaired'
-Bundle 'tpope/vim-repeat'
 Bundle 'tpope/vim-eunuch'
 
 Bundle 'myusuf3/numbers.vim'

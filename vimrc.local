@@ -159,6 +159,6 @@ au FileType python setlocal fo+=t
 " for some reason, stock spf13 is only adding a <D-t> mapping"
 nnoremap <silent> <C-P> :CtrlP<cr>
 
-let g:pymode_lint_checkers = "pep8,pyflakes,mccabe"
+let g:pymode_lint_checkers = ['pep8', 'pyflakes', 'mccabe']
 let g:pymode_lint_config = '$DOTFILES_ROOT/pylint.rc'
 
