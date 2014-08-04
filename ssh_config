@@ -1,5 +1,5 @@
 Host github.com
-    IdentityFile=github
+    IdentityFile=~/.ssh/github
 
 # allow connection sharing
 ControlMaster auto
