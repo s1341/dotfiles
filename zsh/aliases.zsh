@@ -46,7 +46,7 @@ function pygmentize_cat {
         pygmentize -g "${arg}" 2> /dev/null || /bin/cat "${arg}"
     done
 }
-command -v pygmentize > /dev/null && alias pcat=pygmentize_cat
+command -v pygmentize_cat > /dev/null && alias pcat=pygmentize_cat
 
 function hdl {
     hexdump -C $@ | less
@@ -56,9 +56,12 @@ function stringsl {
     strings $@ | less
 }
 
-alias ctw="ssh srubenst@work"
-function cfw () {
-    scp -r srubenst@work:$1 .
+alias ctw="ssh srubenst@10.56.107.214"
+function cpfw () {
+    scp -r srubenst@10.56.107.214:$1 .
+}
+function cptw () {
+    scp -r $1 srubenst@10.56.107.214:$2
 }
 
 
