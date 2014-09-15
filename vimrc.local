@@ -161,4 +161,5 @@ nnoremap <silent> <C-P> :CtrlP<cr>
 
 let g:pymode_lint_checkers = ['pep8', 'pyflakes', 'mccabe']
 let g:pymode_lint_config = '$DOTFILES_ROOT/pylint.rc'
+let g:pymode_options_max_line_length = 90
 
