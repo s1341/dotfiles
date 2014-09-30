@@ -10,6 +10,9 @@ import XMonad.Layout.NoBorders
 import XMonad.Layout.ResizableTile
 import XMonad.Actions.TagWindows
 import XMonad.Actions.CycleWS
+import XMonad.Actions.CycleWindows
+import XMonad.Actions.CycleRecentWS
+import XMonad.Actions.UpdatePointer
 import qualified Data.Map as M
 
 
@@ -41,7 +44,7 @@ myClockDzen = DzenConf {
 }
 
 -- Log hook that prints out everything to a dzen handler
-myLogHook h = dynamicLogWithPP $ myPrettyPrinter h
+myLogHook h = dynamicLogWithPP $ myPrettyPrinter h 
 
 -- Pretty printer for dzen workspace bar
 myPrettyPrinter h = dzenPP {
@@ -125,6 +128,9 @@ keysToAdd x =
         , ((mod4Mask, xK_Return), windows W.swapMaster)
         -- Rebind mod + q: custom restart xmonad script
         , ((modMask x, xK_q), spawn "killall conky dzen2 && xmonad --recompile && xmonad --restart")
+
+        , ((mod4Mask, xK_Tab), cycleRecentWS [xK_Super_L] xK_Tab xK_grave
+            >> updatePointer (Relative 0.5 0.5))
     ]
     ++
     [
@@ -135,7 +141,10 @@ keysToAdd x =
     ]
       where
         notSP = (return $ ("NSP" /=) . W.tag) :: X (WindowSpace -> Bool)
-keysToRemove x = []
+keysToRemove x = 
+    [
+        (mod4Mask, xK_Tab)
+    ]
 -- Delete the key combinations to be removed from the original keys
 newKeys x = foldr M.delete (keys defaultConfig x) (keysToRemove x)
 -- Merge new key combinations with existing keys
