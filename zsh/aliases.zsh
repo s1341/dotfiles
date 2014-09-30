@@ -37,6 +37,8 @@ function cfd () {
 }
 
 alias dv="dirs -v"
+alias pd="popd"
+alias r="repeat"
 
 is_mac && alias ls="ls -lG"
 is_linux && alias ls="ls -l --color"
