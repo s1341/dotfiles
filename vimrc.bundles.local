@@ -41,3 +41,4 @@ Bundle 'othree/javascript-libraries-syntax.vim'
 Bundle 'Valloric/MatchTagAlways'
 
 Bundle 'rking/ag.vim'
+Bundle 'brookhong/cscope.vim'
