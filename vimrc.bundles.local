@@ -1,6 +1,6 @@
-let g:spf13_bundle_groups=['python', 'general', 'programming', 'php', 'ruby',  'go', 'twig', 'javascript', 'haskell', 'html', 'misc', 'scala']
+let g:spf13_bundle_groups=['general', 'programming', 'php', 'ruby',  'go', 'twig', 'javascript', 'haskell', 'html', 'misc', 'scala']
 
-Bundle 'Valloric/YouCompleteMe'
+" Bundle 'Valloric/YouCompleteMe'
 Bundle 'Raimondi/delimitMate'
 
 " autodetect ts sw sts in files
@@ -32,6 +32,7 @@ Bundle "jngeist/vim-multimarkdown"
 "Bundle 'python.vim'
 "Bundle 'python_match.vim'
 "Bundle 'andviro/flake8-vim'
+Bundle 'davidhalter/jedi-vim'
 
 " javascript
 Bundle 'jelera/vim-javascript-syntax'

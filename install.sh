@@ -60,9 +60,9 @@ fi
 # TODO: don't do the full install every time
 echo "[*] spf13"
 echo -e "\t[*] install local vimrc files"
-for file in vimrc.*
+for f in vimrc.*
 do
-    install_file $file $HOME/.$file
+    install_file $f $HOME/.$f
 done
 echo -e "\t[!] installing spf13"
 pushd "modules/spf13-vim" >/dev/null
@@ -80,7 +80,10 @@ popd >/dev/null
 echo "[*] install Xdefaults"
 install_file Xdefaults "$HOME/.Xdefaults"
 [[ -d $HOME/.fonts ]] || mkdir -p $HOME/.fonts
-install_file modules/powerline-fonts/DejaVuSansMono/*.ttf "$HOME/.fonts/"
+for f in modules/powerline-fonts/DejaVuSansMono/*.ttf;
+do
+    install_file "$f" "$HOME/.fonts/"
+done
 
 echo "[*] install Xmodmap"
 install_file Xmodmap "$HOME/.Xmodmap"

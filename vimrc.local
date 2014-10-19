@@ -135,7 +135,7 @@ nnoremap <silent> <Leader>ml :call AppendModeline()<CR>
 " spf13 does horrible things when trying to 'fix' mappings for omnicomplete
 " undo that shit:
 iunmap <expr> <Esc>
-iunmap <expr> <CR>
+"iunmap <expr> <CR>
 iunmap <expr> <Down>
 iunmap <expr> <Up>
 iunmap <expr> <C-d>
