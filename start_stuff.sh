@@ -26,10 +26,10 @@ is_running Linux-G13-Driver || {
 }
 
 
-is_running autossh || {
-	echo "Starting autossh"
-	~/autossh.sh
-}
+# is_running autossh || {
+# 	echo "Starting autossh"
+# 	~/autossh.sh
+# }
 
 is_running vmware || is_running chromium || {
 	echo "Starting vmware, chromium"
@@ -37,4 +37,4 @@ is_running vmware || is_running chromium || {
 	is_running chromium || chromium >/dev/null 2>&1 &
 }
 
-znc
+#znc
