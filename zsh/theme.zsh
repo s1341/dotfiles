@@ -66,4 +66,4 @@ build_prompt () {
 }
 
 PROMPT='%{%f%b%k%}$(build_prompt) %{$reset_color%}'
-RPROMPT='$(prompt_git)%{$reset_color%}'
+#RPROMPT='$(prompt_git)%{$reset_color%}'
