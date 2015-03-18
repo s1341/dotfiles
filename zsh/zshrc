@@ -78,7 +78,7 @@ antigen apply
 
 export DOTFILES_ROOT
 export EDITOR=vim
-export PATH=$PATH:$DOTFILES_ROOT/modules/git-crypt
+export PATH=$PATH:$HOME/bin:$DOTFILES_ROOT/modules/git-crypt
 
 # aliases!
 [[ -e $DOTFILES_ROOT/zsh/aliases.zsh ]] && source $DOTFILES_ROOT/zsh/aliases.zsh
