@@ -1,9 +1,6 @@
 [submodule "modules/git-crypt"]
 	path = modules/git-crypt
 	url = https://github.com/AGWA/git-crypt.git
-[submodule "modules/spf13-vim"]
-	path = modules/spf13-vim
-	url = https://github.com/spf13/spf13-vim.git
 [submodule "modules/antigen"]
 	path = modules/antigen
 	url = https://github.com/zsh-users/antigen.git
