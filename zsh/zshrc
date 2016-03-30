@@ -68,6 +68,7 @@ antigen bundle git
 antigen bundle command-not-found
 antigen bundle vi-mode
 antigen bundle history-substring-search
+antigen bundle rupa/z
 
 #antigen bundle hchbaw/opp.zsh
 antigen bundle zsh-users/zsh-syntax-highlighting
@@ -75,6 +76,8 @@ antigen bundle zsh-users/zsh-syntax-highlighting
 #antigen theme bureau
 
 antigen apply
+
+setopt no_sharehistory
 
 export DOTFILES_ROOT
 export EDITOR=vim
