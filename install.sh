@@ -65,14 +65,7 @@ do
     install_file $f $HOME/.$f
 done
 echo -e "\t[!] installing spf13"
-pushd "modules/spf13-vim" >/dev/null
-./bootstrap.sh && {
-	echo "[*] build native for YouCompleteMe and vimproc"
-	(cd $HOME/.vim/bundle/vimproc; make clean all)
-	(cd $HOME/.vim/bundle/YouCompleteMe; ./install.sh --clang-completer --system-libclang)
-}
-popd >/dev/null
-
+curl https://j.mp/spf13-vim3 -L > /tmp/spf13-vim.sh && sh /tmp/spf13-vim.sh
 
 
 
