@@ -34,6 +34,10 @@ urxvt*keysym.C-minus:    perl:font-size:decrease
 urxvt*keysym.C-0:    command:\033]710;xft:DejaVu Sans Mono for Powerline:size=8:autohint=true:antialias=false\007
 urxvt*font-size.step: 1
 
+!scrolling
+urxvt*scrollTtyOutput: false
+urxvt*scrollWithBuffer: true
+urxvt*scrollTtyKeypress: true
 
 !! Molokai theme
 urxvt*background                : #1B1D1E

@@ -45,13 +45,10 @@ noremap <expr> <silent> <C-h> col('.') == match(getline('.'),'\S')+1 ? '0' : '^'
 noremap <silent> J <C-O><Home>
 
 " when in insert mode, why not escape by hitting jj?
-inoremap jj <esc>
+inoremap jj <Esc>
 
-" work with system clipboard
-inoremap <M-p> <Esc>"+pi
-inoremap <M-P> <Esc>"+Pi
-vnoremap <M-y> <Esc>"+y
-nnoremap <M-y> <Esc>"+y
+" work with system cljpboard
+set clipboard=unnamed
 
 " https://github.com/majutsushi/tagbar/issues/99
 set shell=/bin/sh
@@ -159,9 +156,7 @@ au FileType python setlocal fo+=t
 " for some reason, stock spf13 is only adding a <D-t> mapping"
 nnoremap <silent> <C-P> :CtrlP<cr>
 
-let g:pymode_lint_checkers = ['pep8', 'pyflakes', 'mccabe']
-let g:pymode_lint_config = '$DOTFILES_ROOT/pylint.rc'
-let g:pymode_options_max_line_length = 90
-let g:pymode_virtualenv=1
-let g:virtualenv_directory = "~/.sas/pyenv/versions"
 
+nmap s <Plug>(easymotion-overwin-f2)
+map <Leader>j <Plug>(easymotion-j)
+map <Leader>k <Plug>(easymotion-k)
