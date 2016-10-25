@@ -10,7 +10,7 @@ urxvt*cursorBlink:       true
 urxvt*cursorUnderline:   false
 urxvt*urgentOnBell:       true
 urxvt*override-redirect:false
-urxvt*font: xft:DejaVu Sans Mono for Powerline:size=8:antialias=false
+urxvt*font: xft:DejaVu\ Sans\ Mono\ for\ Powerline:pixelsize=12:antialias=true
 !
 ! Extensions
 urxvt*perl-lib:        /usr/lib/urxvt/perl/
@@ -31,7 +31,7 @@ urxvt*cutchars:        '"'()*<>[]{|}
 ! font resizing
 urxvt*keysym.C-plus:    perl:font-size:increase
 urxvt*keysym.C-minus:    perl:font-size:decrease
-urxvt*keysym.C-0:    command:\033]710;xft:DejaVu Sans Mono for Powerline:size=8:autohint=true:antialias=false\007
+urxvt*keysym.C-0:    command:\033]710;xft:DejaVu Sans Mono for Powerline:size=8:antialias=false\007
 urxvt*font-size.step: 1
 
 !scrolling

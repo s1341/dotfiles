@@ -17,3 +17,5 @@ let g:syntastic_style_warning_symbol = '≈'
 let g:indent_guides_exclude_filetypes = ['help', 'nerdtree', 'unite']
 
 let g:spf13_bundle_groups=['general', 'programming', 'php', 'python', 'ruby',  'go', 'twig', 'javascript', 'haskell', 'html', 'misc', 'scala']
+
+let g:spf13_no_autochdir = 1

@@ -1,6 +1,8 @@
 Host github.com
     IdentityFile=~/.ssh/github
 
+Host gist.github.com
+    IdentityFile=~/.ssh/github
 # allow connection sharing
 ControlMaster auto
 ControlPath /tmp/ssh_mux_%h_%p_%r
