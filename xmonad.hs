@@ -17,31 +17,31 @@ import qualified Data.Map as M
 
 
 -- Workspace dzen bar
-myStatusBar = DzenConf {
-      x_position = Just 400
-    , y_position = Just 0
-    , width      = Just 1060
-    , height     = Just 24
-    , alignment  = Just LeftAlign
-    , font       = Just "Bitstream Sans Vera:pixelsize=11"
-    , fg_color   = Just "#ffffff"
-    , bg_color   = Just "#000000"
-    , exec       = []
-    , addargs    = []
-}
--- Workspace dzen bar
-myClockDzen = DzenConf {
-      x_position = Just 1460
-    , y_position = Just 0
-    , width      = Just 220
-    , height     = Just 24
-    , alignment  = Just LeftAlign
-    , font       = Just "Bitstream Sans Vera:pixelsize=11"
-    , fg_color   = Just "#ffffff"
-    , bg_color   = Just "#000000"
-    , exec       = []
-    , addargs    = []
-}
+-- myStatusBar = DzenConf {
+--       xPosition = Just 400
+--     , yPosition = Just 0
+--     , width      = Just 1060
+--     , height     = Just 24
+--     , alignment  = Just LeftAlign
+--     , font       = Just "Bitstream Sans Vera:pixelsize=11"
+--     , fgColor   = Just "#ffffff"
+--     , bgColor   = Just "#000000"
+--     , exec       = []
+--     , addargs    = []
+-- }
+-- -- Workspace dzen bar
+-- myClockDzen = DzenConf {
+--       xPosition = Just 1460
+--     , yPosition = Just 0
+--     , width      = Just 220
+--     , height     = Just 24
+--     , alignment  = Just LeftAlign
+--     , font       = Just "Bitstream Sans Vera:pixelsize=11"
+--     , fgColor   = Just "#ffffff"
+--     , bgColor   = Just "#000000"
+--     , exec       = []
+--     , addargs    = []
+-- }
 
 -- Log hook that prints out everything to a dzen handler
 myLogHook h = dynamicLogWithPP $ myPrettyPrinter h 
@@ -78,11 +78,11 @@ trimSpace = f . f
     where f = reverse . dropWhile isSpace
 
 main = do
-    workspaceBar <- spawnDzen myStatusBar
-    spawnToDzen "conky -c ~/.conky/daterc" myClockDzen
+    -- workspaceBar <- spawnDzen myStatusBar
+    -- spawnToDzen "conky -c ~/.conky/daterc" myClockDzen
     xmonad $ withUrgencyHook NoUrgencyHook $ defaultConfig {
         modMask = mod4Mask -- use the windows button
-      , logHook = myLogHook workspaceBar
+      -- , logHook = myLogHook workspaceBar
       , manageHook = manageDocks <+> myManageHook
       , workspaces = myWorkspaces
       , terminal = "urxvt"
