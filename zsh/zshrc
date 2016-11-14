@@ -88,7 +88,7 @@ export PATH=$PATH:$HOME/bin:$DOTFILES_ROOT/modules/git-crypt
 # theme!
 [[ -e $DOTFILES_ROOT/zsh/theme.zsh ]] && source $DOTFILES_ROOT/zsh/theme.zsh
 # other cool stuff:
-for f in open scriptlets
+for f in open scriptlets stfu
 do
     [[ -e $DOTFILES_ROOT/zsh/$f.zsh ]] && source $DOTFILES_ROOT/zsh/$f.zsh
 done
