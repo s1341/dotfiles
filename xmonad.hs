@@ -129,8 +129,9 @@ keysToAdd x =
         -- Rebind mod + q: custom restart xmonad script
         , ((modMask x, xK_q), spawn "killall conky dzen2 && xmonad --recompile && xmonad --restart")
 
+        , ((modMask x .|. shiftMask, xK_l), spawn "gnome-screensaver-command --lock")
         , ((mod4Mask, xK_Tab), cycleRecentWS [xK_Super_L] xK_Tab xK_grave
-            >> updatePointer (Relative 0.5 0.5))
+            >> updatePointer (0.5,0.5) (1,1))
     ]
     ++
     [
