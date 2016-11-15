@@ -93,5 +93,9 @@ do
     [[ -e $DOTFILES_ROOT/zsh/$f.zsh ]] && source $DOTFILES_ROOT/zsh/$f.zsh
 done
 
-# sasenv
-[[ -e $HOME/.sas/login.sh ]] && source $HOME/.sas/login.sh
+# pyenv
+export PYENV_ROOT="$HOME/src/pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)" 
+pyenv shell 2.7.12
+
