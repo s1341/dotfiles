@@ -24,8 +24,7 @@ function install_file {
             mv $target $target.$(date +'%Y%m%d_%H%M');
         fi
     fi
-    local realsource=$(realpath $source)
-    ln -s $realsource $target
+    ln -sf $(pwd)/$source $target
     [[ ! -z $modes ]] && chmod $modes $target
 
 }
@@ -90,7 +89,7 @@ echo "[*] installing xmonad.hs"
 [[ -d $HOME/.xmonad ]] || mkdir -p $HOME/.xmonad
 install_file xmonad.hs "$HOME/.xmonad/xmonad.hs"
 [[ -d $HOME/.xmonad/lib ]] || mkdir -p $HOME/.xmonad/lib
-install_file modules/xmonad-dzen/lib/Dzen.hs "$HOME/.xmonad/lib/Dzen.hs"
+install_file modules/xmonad-config/lib/Dzen.hs "$HOME/.xmonad/lib/Dzen.hs"
 
 echo "[*] install weechat"
 install_file weechat "$HOME/.weechat"
@@ -100,6 +99,11 @@ pushd zsh >/dev/null
 install_file zshrc "$HOME/.zshrc"
 popd >/dev/null
 
+echo "[*] install ptypthon config"
+installfile ptpython/config.py "$HOME/.ptpython/config.py"
+
+echo "[*] install gdbinit"
+installfile gdbinit "$HOME/.gdbinit"
 
 # we're done, go back to the original directory
 popd > /dev/null
