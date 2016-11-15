@@ -1,4 +1,4 @@
-[[ -z $DOTFILES_ROOT ]] && DOTFILES_ROOT=$HOME/github/dotfiles
+[[ -z $DOTFILES_ROOT ]] && DOTFILES_ROOT=$HOME/src/dotfiles
 
 DEFAULT_USER=srubenst
 
