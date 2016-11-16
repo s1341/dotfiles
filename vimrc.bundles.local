@@ -42,3 +42,8 @@ Bundle 'Valloric/MatchTagAlways'
 
 Bundle 'rking/ag.vim'
 Bundle 'brookhong/cscope.vim'
+
+
+Bundle 'xolox/vim-easytags'
+Bundle 'xolox/vim-misc'
+Bundle 'octol/vim-cpp-enhanced-highlight'

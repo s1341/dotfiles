@@ -105,5 +105,6 @@ installfile ptpython/config.py "$HOME/.ptpython/config.py"
 echo "[*] install gdbinit"
 installfile gdbinit "$HOME/.gdbinit"
 
+installfile ycm_extra_conf.py "$HOME/.ycm_extra_conf.py"
 # we're done, go back to the original directory
 popd > /dev/null

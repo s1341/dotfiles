@@ -64,8 +64,8 @@ nnoremap / /\v
 vnoremap / /\v
 
 " tab to hop between matching brackets
-nnoremap <tab> %
-vnoremap <tab> %
+"nnoremap <tab> %
+"vnoremap <tab> %
 
 " unite:
 nnoremap <space>p :Unite -start-insert file_rec/async:!<cr>
@@ -141,8 +141,8 @@ iunmap <expr> <C-u>
 inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 " decrease the timeouts to saner values, so that there is almost no delay
 " moving from mode to mode.
-set timeoutlen=200
-set ttimeoutlen=200
+set timeoutlen=500
+set ttimeoutlen=500
 
 " lines should be 80 chars
 set textwidth=90
@@ -160,3 +160,37 @@ nnoremap <silent> <C-P> :CtrlP<cr>
 nmap s <Plug>(easymotion-overwin-f2)
 map <Leader>j <Plug>(easymotion-j)
 map <Leader>k <Plug>(easymotion-k)
+
+" cscope
+" interactive search
+nnoremap <Leader>fa :call CscopeFindInteractive(expand('<cword>'))<CR>
+" Find this symbol
+nnoremap <Leader>fs :call CscopeFind('s', expand('<cword>'))<CR>
+" Find this definition
+nnoremap <Leader>fg :call CscopeFind('g', expand('<cword>'))<CR>
+
+
+" Ack.vim
+nnoremap <Leader>fd :Ack!<CR>
+let g:ackhighlight=1
+let g:ack_autoclose=1
+
+" Tagbar
+let g:tagbar_autofocus=1
+let g:tagbar_autoclose=1
+let g:tagbar_map_nexttag="<C-J>"
+let g:tagbar_map_prevtag="<C-K>"
+
+" EasyTags
+let g:easytags_async=1
+let g:easytags_include_members=1
+let g:easytags_dynamic_files=1
+let g:easytags_python_enabled=1
+let g:easytags_auto_highlight=0
+command! -nargs=1 -complete=file Utr UpdateTags -R <args>
+
+" YCM
+let g:ycm_global_ycm_extra_conf='~/.ycm_extra_conf.py'
+let g:ycm_min_num_of_chars_for_completion=1
+let g:ycm_key_detailed_diagnostics=''
+nnoremap <Leader>d :YcmCompleter GoTo<CR>
